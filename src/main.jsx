@@ -7,13 +7,19 @@ import {
 import './index.css'
 import Login from './Components/Login/Login';
 import Authprovider from './Provider/Authprovider';
+import Home from './Components/Home/Home';
+
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login></Login>,
+    element: <Home></Home>,
   },
+  {
+    path:"/login",
+    element:<Login></Login>
+  }
 ]);
 
 

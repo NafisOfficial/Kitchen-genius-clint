@@ -3,7 +3,7 @@ import { createContext } from 'react';
 
 
 
-const Authprovider = ({childern}) => {
+const Authprovider = ({children}) => {
 
     const authContex = createContext(null)
 
@@ -16,7 +16,7 @@ const Authprovider = ({childern}) => {
 
     return (
         <authContex.Provider value={authInfo}>
-            {childern}
+            {children}
         </authContex.Provider>
     );
 };
