@@ -9,6 +9,7 @@ import Login from './Components/Login/Login';
 import Authprovider from './Provider/Authprovider';
 import Home from './Components/Home/Home';
 import Blog from './Components/Blog/Blog';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
 
 
 
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    errorElement:<ErrorPage></ErrorPage>
   },
   {
     path:"/login",
