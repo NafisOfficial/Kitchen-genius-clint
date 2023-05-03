@@ -8,6 +8,7 @@ import './index.css'
 import Login from './Components/Login/Login';
 import Authprovider from './Provider/Authprovider';
 import Home from './Components/Home/Home';
+import Blog from './Components/Blog/Blog';
 
 
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path:"/login",
     element:<Login></Login>
+  },
+  {
+    path:"/blog",
+    element:<Blog></Blog>
   }
 ]);
 
