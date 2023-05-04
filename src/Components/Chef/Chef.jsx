@@ -1,9 +1,16 @@
 import React from 'react';
 import { FaThumbsUp } from "react-icons/fa";
 
+const View = (id) =>{
+    console.log(id);
+    window.location.href=`/chefs/${id}`
+}
+
+
+
 const Chef = ({ Chef }) => {
 
-    const { backgroundImage,chefPicture,chefName,yearsOfExperience,totalLikes,recipes } = Chef;
+    const { chefId,backgroundImage,chefPicture,chefName,yearsOfExperience,totalLikes,recipes } = Chef;
 
 
 
@@ -18,10 +25,10 @@ const Chef = ({ Chef }) => {
                 </div>
                 <div className="card-body">
                     <h2 className="card-title">Name: {chefName}</h2>
-                    <p>Experience: {yearsOfExperience}</p>
-                    <p>Total recipes: {recipes.length}</p>
+                    <p className='text-lg'>Experience: {yearsOfExperience}</p>
+                    <p  className='text-lg'>Total recipes: {recipes.length}</p>
                     <div className="card-actions justify-between items-center">
-                      <button className='text-3xl flex gap-3'><FaThumbsUp></FaThumbsUp><span>{totalLikes}</span></button> <button className="btn btn-primary">View recipe</button>
+                      <button className='text-3xl flex gap-3 text-green-700'><FaThumbsUp></FaThumbsUp><span>{totalLikes}</span></button> <button className="btn bg-green-700" onClick={()=>{View(chefId)}}>View recipe</button>
                     </div>
                 </div>
             </div>
