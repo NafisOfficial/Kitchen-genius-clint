@@ -1,20 +1,22 @@
 import React, { useContext } from 'react';
 import './home.css'
 import Navbar from '../Navbar/Navbar';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLoaderData } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { authContext } from '../../Provider/Authprovider';
+import Chef from '../Chef/Chef';
 
 const Home = () => {
 
-    const {user} = useContext(authContext)
+    const {user} = useContext(authContext);
 
-    console.log(user);
+    const chefs = useLoaderData();
+
 
 
     return (
         <div>
-            <Navbar></Navbar>
+            <div className='z-0 sticky top-0'><Navbar></Navbar></div>
             <div className='banner bg-cover flex flex-col justify-center items-end '>
                 <div className='w-6/12 '>
                     <h2 className=' text-green-700 font-semibold text-lg sm:text-7xl'>Test your taste</h2>
@@ -24,7 +26,9 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <Outlet></Outlet>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 ms-9 sm:mx-10 my-12 items-center z-10 absolute">
+                {chefs.map(chef=><Chef key={chef.chefId} Chef={chef}></Chef>)}
+            </div>
         </div>
     );
 };
