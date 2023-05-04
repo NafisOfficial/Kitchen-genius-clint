@@ -8,11 +8,11 @@ import Chef from '../Chef/Chef';
 
 const Home = () => {
 
-    const {user} = useContext(authContext);
+    const {user,setUserData} = useContext(authContext);
 
     const chefs = useLoaderData();
 
-
+    setUserData(chefs);
 
     return (
         <div>

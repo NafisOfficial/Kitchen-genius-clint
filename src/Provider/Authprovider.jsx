@@ -9,6 +9,7 @@ const Authprovider = ({children}) => {
 
     const auth = getAuth(app)
 
+    const [userdata,setUserData] = useState('');
     
     const [user,setUser] = useState(null)
 
@@ -21,7 +22,7 @@ const Authprovider = ({children}) => {
     }
 
 
-    const authInfo = {user,setUser,createUserByEmailPassword,signInByEmailAndPass}
+    const authInfo = {user,setUser,createUserByEmailPassword,signInByEmailAndPass,userdata,setUserData}
 
 
     return (

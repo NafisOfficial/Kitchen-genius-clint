@@ -10,6 +10,7 @@ const View = (id) =>{
 
 const Chef = ({ Chef }) => {
 
+
     const { chefId,backgroundImage,chefPicture,chefName,yearsOfExperience,totalLikes,recipes } = Chef;
 
 
