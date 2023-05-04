@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { FaHeart } from "react-icons/fa";
+import Recipes from '../Recipie.jsx/Recipes';
+
+
 
 const Items = () => {
 
@@ -21,10 +23,12 @@ const Items = () => {
                         <p className="py-2">Years of Experience:{yearsOfExperience}</p>
                         <p className="py-2">Number:{contactNumber}</p>
                         <p className="py-2">Address:{address}</p>
-                        <button className="border-0 text-red-700 text-6xl"><FaHeart></FaHeart></button>
+                        
                     </div>
                 </div>
             </div>
+            <div className="grid grid-cols-3 gap-4">{recipes.map(data=><Recipes key={data.rating} data={data}></Recipes>)}</div>
+            
         </div>
     );
 };
