@@ -3,16 +3,14 @@ import './home.css'
 import Navbar from '../Navbar/Navbar';
 import { Outlet, useLoaderData } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
-import { authContext } from '../../Provider/Authprovider';
 import Chef from '../Chef/Chef';
 
 const Home = () => {
 
-    const {user,setUserData} = useContext(authContext);
 
     const chefs = useLoaderData();
 
-    setUserData(chefs);
+    
 
     return (
         <div>

@@ -3,6 +3,7 @@ import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { Form } from 'react-router-dom';
 import { authContext } from '../../Provider/Authprovider';
 import { ToastContainer, toast } from 'react-toastify';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 
@@ -13,7 +14,7 @@ import { ToastContainer, toast } from 'react-toastify';
 const Login = () => {
 
 
-    const { signInByEmailAndPass,setUser } = useContext(authContext);
+    const { signInByEmailAndPass,setUser,singInByGoogle } = useContext(authContext);
 
     const handleLoginButton = (event) => {
         event.preventDefault();
@@ -34,10 +35,31 @@ const Login = () => {
     const handleGoogleButton = (event) => {
         event.preventDefault();
 
+        const provider = new GoogleAuthProvider()
+
+        singInByGoogle(provider)
+        .then((result)=>{
+            setUser(result.user);
+        })
+        .catch((error)=>{
+            console.error(error.message);
+            toast.error(error.message);
+        })
+
     }
 
     const handleGithubButton = (event) => {
         event.preventDefault();
+        const provider = new GithubAuthProvider()
+
+        singInByGoogle(provider)
+        .then((result)=>{
+            setUser(result.user);
+        })
+        .catch((error)=>{
+            console.error(error.message);
+            toast.error(error.message);
+        })
 
     }
 

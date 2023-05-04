@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './nav.css'
+import { authContext } from '../../Provider/Authprovider';
 
 const Navbar = () => {
+
+    const {user} = useContext(authContext);
+
+    console.log(user);
+
     return (
         <div className='bg-color'>
             <div className="navbar text-white px-7">
