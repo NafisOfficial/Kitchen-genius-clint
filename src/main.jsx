@@ -11,6 +11,7 @@ import Home from './Components/Home/Home';
 import Blog from './Components/Blog/Blog';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Register from './Components/Register/Register';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 

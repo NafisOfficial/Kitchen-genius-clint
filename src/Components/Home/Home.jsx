@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './home.css'
 import Navbar from '../Navbar/Navbar';
 import { Outlet } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
+import { authContext } from '../../Provider/Authprovider';
 
 const Home = () => {
+
+    const {user} = useContext(authContext)
+
+    console.log(user);
+
+
     return (
         <div>
             <Navbar></Navbar>

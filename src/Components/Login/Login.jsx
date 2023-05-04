@@ -1,29 +1,50 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { Form } from 'react-router-dom';
+import { authContext } from '../../Provider/Authprovider';
+import { ToastContainer, toast } from 'react-toastify';
 
 
-const handleLoginButton = (event) => {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
 
-    console.log(email,password);
 
-}
-const handleGoogleButton = (event) => {
-    event.preventDefault();
-
-}
-
-const handleGithubButton = (event) => {
-    event.preventDefault();
-
-}
 
 
 
 const Login = () => {
+
+
+    const { signInByEmailAndPass,setUser } = useContext(authContext);
+
+    const handleLoginButton = (event) => {
+        event.preventDefault();
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+
+        signInByEmailAndPass(email, password)
+            .then((result) => {
+                setUser(result.user);
+            })
+            .catch((error) => {
+                console.error(error.message);
+                toast.error(error.message)
+            })
+
+
+    }
+    const handleGoogleButton = (event) => {
+        event.preventDefault();
+
+    }
+
+    const handleGithubButton = (event) => {
+        event.preventDefault();
+
+    }
+
+
+
+
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -69,6 +90,18 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable={false}
+                pauseOnHover
+                theme="light"
+            />
         </div>
     );
 };
