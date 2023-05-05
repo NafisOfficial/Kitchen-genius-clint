@@ -6,6 +6,11 @@
 
 
 
+nav a.active{
+    color: white;
+    font-weight: bold;
+}
+
 
 
 

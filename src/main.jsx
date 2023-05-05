@@ -13,32 +13,39 @@ import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Register from './Components/Register/Register';
 import 'react-toastify/dist/ReactToastify.css';
 import Items from './Components/Items/Items';
+import Navbar from './Components/Navbar/Navbar';
 
 
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Home></Home>,
-    errorElement:<ErrorPage></ErrorPage>,
-    loader:() =>fetch('http://localhost:5000/chefs'),
-  },
-  {
-    path:"/login",
-    element:<Login></Login>
-  },
-  {
-    path:"/blog",
-    element:<Blog></Blog>
-  },
-  {
-    path:"/register",
-    element:<Register></Register>
-  },
-  {
-    path:"/chefs/:id",
-    element:<Items></Items>,
-    loader:({params})=>fetch(`http://localhost:5000/chefs/${params.id}`)
+    path:"/",
+    element:<Navbar></Navbar>,
+    children:[
+      {
+        path: "/",
+        element: <Home></Home>,
+        errorElement:<ErrorPage></ErrorPage>,
+        loader:() =>fetch('http://localhost:5000/chefs'),
+      },
+      {
+        path:"/login",
+        element:<Login></Login>
+      },
+      {
+        path:"/blog",
+        element:<Blog></Blog>
+      },
+      {
+        path:"/register",
+        element:<Register></Register>
+      },
+      {
+        path:"/chefs/:id",
+        element:<Items></Items>,
+        loader:({params})=>fetch(`http://localhost:5000/chefs/${params.id}`)
+      }
+    ]
   }
 ]);
 

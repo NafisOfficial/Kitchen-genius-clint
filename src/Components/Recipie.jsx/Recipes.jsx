@@ -15,7 +15,7 @@ const Recipes = ({data}) => {
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={imageLink} alt="Shoes" /></figure>
+                <figure><img src={imageLink} alt="Shoes" className='h-72 w-full' /></figure>
                 <div className="card-body">
                     <h2 className="card-title">Recipe name: <span>{recipeName}</span> </h2>
                     <p ><span className='text-lg font-semibold'>CookingMethod:</span> {cookingMethod}</p>

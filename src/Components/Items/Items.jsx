@@ -2,6 +2,8 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Recipes from '../Recipie.jsx/Recipes';
 import './Items.css'
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 
 
@@ -29,7 +31,6 @@ const Items = () => {
                 </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mx-2 sm:mx-8 my-12">{recipes.map(data=><Recipes key={data.rating} data={data}></Recipes>)}</div>
-            
         </div>
     );
 };

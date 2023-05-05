@@ -15,7 +15,6 @@ const Home = () => {
 
     return (
         <div>
-            <div className='z-10 sticky top-0'><Navbar></Navbar></div>
             <div className='banner bg-cover flex flex-col justify-center items-end '>
                 <div className='w-6/12 '>
                     <h2 className=' text-green-700 font-semibold text-lg sm:text-7xl'>Test your taste</h2>
@@ -27,9 +26,6 @@ const Home = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 ms-9 sm:mx-10 my-12 items-center z-0">
                 {chefs.map(chef=><Chef key={chef.chefId} Chef={chef}></Chef>)}
-            </div>
-            <div>
-                <Footer></Footer>
             </div>
         </div>
     );
