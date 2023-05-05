@@ -14,6 +14,7 @@ import Register from './Components/Register/Register';
 import 'react-toastify/dist/ReactToastify.css';
 import Items from './Components/Items/Items';
 import Navbar from './Components/Navbar/Navbar';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 
 
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/chefs/:id",
-        element:<Items></Items>,
+        element:<PrivateRoute><Items></Items></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:5000/chefs/${params.id}`)
       }
     ]

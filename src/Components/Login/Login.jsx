@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { Form } from 'react-router-dom';
+import { Form, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../../Provider/Authprovider';
 import { ToastContainer, toast } from 'react-toastify';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
@@ -13,8 +13,15 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
 
+    const location = useLocation();
 
-    const { signInByEmailAndPass,setUser,singInByGoogle } = useContext(authContext);
+    const navigate = useNavigate();
+
+    const from = location?.state?.from?.pathname || '/'
+
+    const { signInByEmailAndPass,singInByGoogle } = useContext(authContext);
+
+    
 
     const handleLoginButton = (event) => {
         event.preventDefault();
@@ -22,8 +29,8 @@ const Login = () => {
         const password = event.target.password.value;
 
         signInByEmailAndPass(email, password)
-            .then((result) => {
-                setUser(result.user);
+            .then(() => {
+                navigate(from,{replace:true})
             })
             .catch((error) => {
                 console.error(error.message);
@@ -38,8 +45,8 @@ const Login = () => {
         const provider = new GoogleAuthProvider()
 
         singInByGoogle(provider)
-        .then((result)=>{
-            setUser(result.user);
+        .then(()=>{
+            navigate(from,{replace:true});
         })
         .catch((error)=>{
             console.error(error.message);
@@ -53,8 +60,8 @@ const Login = () => {
         const provider = new GithubAuthProvider()
 
         singInByGoogle(provider)
-        .then((result)=>{
-            setUser(result.user);
+        .then(()=>{
+            navigate(from ,{replace:true})
         })
         .catch((error)=>{
             console.error(error.message);
