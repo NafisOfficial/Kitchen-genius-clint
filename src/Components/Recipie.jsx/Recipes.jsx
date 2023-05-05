@@ -22,7 +22,7 @@ const Recipes = ({data}) => {
                     <p ><span className='text-lg font-semibold'> Rating:</span> {rating}</p>
                     <ul>
                         <h3 className='text-lg font-semibold'>Ingredients:</h3>
-                            {ingredients.map((dt,index)=><li key={index}>{dt}</li>)}
+                            {ingredients.map((dt,index)=><li className='ms-1' key={index}>{dt}</li>)}
                         </ul>
                     <div className='flex justify-between'>
                         <h3 className='font-semibold text-lg'>Add to favorite</h3>

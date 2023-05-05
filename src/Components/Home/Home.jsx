@@ -4,6 +4,7 @@ import Navbar from '../Navbar/Navbar';
 import { Outlet, useLoaderData } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import Chef from '../Chef/Chef';
+import Footer from '../Footer/Footer';
 
 const Home = () => {
 
@@ -26,6 +27,9 @@ const Home = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 ms-9 sm:mx-10 my-12 items-center z-0">
                 {chefs.map(chef=><Chef key={chef.chefId} Chef={chef}></Chef>)}
+            </div>
+            <div>
+                <Footer></Footer>
             </div>
         </div>
     );
