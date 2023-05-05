@@ -19,7 +19,7 @@ const Chef = ({ Chef }) => {
         <div>
             <div className="card card-compact w-72 sm:w-96 bg-base-100 shadow-xl">
                 <figure><img src={backgroundImage} className='h-64 w-full static' alt="Shoes" /></figure>
-                <div className="avatar mx-auto relative bottom-12">
+                <div className="avatar mx-auto relative bottom-20 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
                     <div className="w-32 rounded-full">
                         <img src={chefPicture} />
                     </div>
