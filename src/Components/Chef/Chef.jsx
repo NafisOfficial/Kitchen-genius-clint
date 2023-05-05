@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaThumbsUp } from "react-icons/fa";
+import LazyLoad from 'react-lazy-load';
 
 const View = (id) =>{
     console.log(id);
