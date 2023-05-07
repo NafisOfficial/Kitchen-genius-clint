@@ -22,7 +22,7 @@ const Chef = ({ Chef }) => {
                 <figure><img src={backgroundImage} className='h-64 w-full static' alt="Shoes" /></figure>
                 <div className="avatar mx-auto relative bottom-20 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
                     <div className="w-32 rounded-full">
-                        <img src={chefPicture} />
+                    <LazyLoad height={128} width={128}><img src={chefPicture} /></LazyLoad>
                     </div>
                 </div>
                 <div className="card-body">

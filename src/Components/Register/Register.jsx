@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Form } from 'react-router-dom';
+import { Form, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../../Provider/Authprovider';
 import { updateProfile } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 
 
 const Register = () => {
+const navigate=useNavigate()
+const location=useLocation()
+    
+    const from = location?.state?.from?.pathname || '/login'
 
     const { createUserByEmailPassword, setUser } = useContext(authContext);
     const handleRegisterForm = (event) => {
@@ -23,12 +27,13 @@ const Register = () => {
                 toast.success("User created successfully");
                 updateProfile(result.user, { displayName: name, photoURL: url })
                     .then(() => {
-
+                        navigate(from,{replace:true})
                     })
                     .catch(() => {
 
                     })
                 setUser(result.user);
+                
             })
             .catch((error) => {
                 toast.error(error.message)

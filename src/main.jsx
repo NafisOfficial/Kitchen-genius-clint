@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader:() =>fetch('http://localhost:5000/chefs'),
+        loader:() =>fetch('https://kitchen-genius-server-nafisofficial.vercel.app/chefs'),
       },
       {
         path:"/login",
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       {
         path:"/chefs/:id",
         element:<PrivateRoute><Items></Items></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/chefs/${params.id}`)
+        loader:({params})=>fetch(`https://kitchen-genius-server-nafisofficial.vercel.app/chefs/${params.id}`)
       }
     ]
   }

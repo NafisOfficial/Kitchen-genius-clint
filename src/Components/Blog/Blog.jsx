@@ -1,4 +1,6 @@
 import React from 'react';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import Pdf  from '../PDF/PDF'
 
 const Blog = () => {
     return (
@@ -71,6 +73,17 @@ const Blog = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="flex justify-around my-5">
+            <PDFDownloadLink document={<Pdf />} filename="FORM">
+              {({ loading }) =>
+                loading ? (
+                  <button className="btn btn-secondary">Loading Document...</button>
+                ) : (
+                  <button className="btn btn-secondary">Download Blog pdf</button>
+                )
+              }
+            </PDFDownloadLink>
             </div>
         </div>
     );
