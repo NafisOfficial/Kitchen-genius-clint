@@ -42,7 +42,7 @@ const Home = () => {
             </div>
 
             <div>
-                <div className="flex items-center justify-center bg-gradient-to-r from-blue-900 to-fuchsia-700 ">
+                <div className="flex items-center justify-center bg-gradient-to-r from-green-900 to-green-700 ">
                     <div className="flex-col items-center justify-center text-white">
                         <div className="h-40 w-[70%] md:w-1/2 flex items-center justify-center  text-3xl lg:text-5xl font-bold mx-14"> Our quality is our pride</div>
 
@@ -76,8 +76,7 @@ const Home = () => {
                     </div>
 
                 </div>
-                <script src="https://cdn.tailwindcss.com"></script>
-
+                
             </div>
 
             <div className='bg-slate-200 p-6'>
